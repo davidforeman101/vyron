@@ -1,56 +1,132 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VYRON — Support</title>
-  <style>
-    :root { color-scheme: dark light; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-           max-width: 820px; margin: 40px auto; padding: 0 20px; line-height: 1.55; }
-    h1 { margin: 0 0 8px; }
-    h2 { margin-top: 28px; }
-    .meta { opacity: .75; margin: 0 0 24px; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-    .contact { border: 1px solid rgba(128,128,128,.4); border-radius: 10px;
-               padding: 16px 20px; margin: 24px 0; }
-    .contact a { font-size: 1.15em; font-weight: 600; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — Support</title>
+<style>
+  :root{
+    --bg:#000814; --panel:rgba(10,22,38,.72); --line:rgba(60,140,190,.35);
+    --cyan:#4cd9ff; --amber:#ffd94d; --green:#5dfb8b; --text:#d7e2ee; --dim:#8fa3b8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,.65) 50%, transparent 50%),
+      radial-gradient(1px 1px at 78% 14%, rgba(255,255,255,.5) 50%, transparent 50%),
+      radial-gradient(1px 1px at 34% 68%, rgba(255,255,255,.45) 50%, transparent 50%),
+      radial-gradient(1px 1px at 62% 84%, rgba(255,255,255,.55) 50%, transparent 50%),
+      radial-gradient(1.5px 1.5px at 88% 52%, rgba(255,255,255,.4) 50%, transparent 50%),
+      radial-gradient(1px 1px at 22% 90%, rgba(255,255,255,.4) 50%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(30,90,150,.30), transparent 70%),
+      radial-gradient(ellipse 60% 45% at 85% 100%, rgba(90,40,130,.22), transparent 70%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+    line-height:1.6; padding:48px 20px 80px; min-height:100vh;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+  .brand{text-align:center;margin-bottom:6px}
+  .brand h1{
+    font-size:clamp(44px,9vw,76px); letter-spacing:.14em; font-weight:800;
+    background:linear-gradient(180deg,#ffffff 0%,#cfe9fb 38%,#5aa9d8 52%,#e8f6ff 66%,#8fc4e4 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 18px rgba(90,180,255,.45));
+  }
+  .tagline{text-align:center;color:var(--cyan);font-size:13px;letter-spacing:.22em;
+    text-transform:uppercase;margin-bottom:34px;opacity:.9}
+  .panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:22px 26px; margin:18px 0; backdrop-filter:blur(6px);
+    box-shadow:0 0 0 1px rgba(255,255,255,.03) inset, 0 8px 30px rgba(0,0,0,.4);
+  }
+  .panel.focus{border-color:rgba(76,217,255,.55);
+    box-shadow:0 0 26px rgba(60,170,230,.20), 0 0 0 1px rgba(76,217,255,.18) inset}
+  h2{color:var(--amber); font-size:14px; letter-spacing:.16em; text-transform:uppercase;
+     margin-bottom:12px; font-weight:700}
+  p{margin:9px 0}
+  a{color:var(--cyan); text-decoration:none; border-bottom:1px solid rgba(76,217,255,.35)}
+  a:hover{border-bottom-color:var(--cyan)}
+  .email{display:inline-block;font-size:clamp(19px,3.4vw,25px);font-weight:600;
+    letter-spacing:.02em;margin:6px 0 2px;border-bottom-width:2px}
+  .terminal{font-family:ui-monospace,"Courier New",Menlo,monospace;color:var(--green);
+    font-size:14px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(93,251,139,.18)}
+  .dim{color:var(--dim);font-size:14px}
+  kbd{font-family:ui-monospace,"Courier New",monospace;background:rgba(255,255,255,.07);
+    border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:13px;color:#e8f4ff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  footer{text-align:center;margin-top:34px;color:var(--dim);font-size:13px}
+  footer a{border:0}
+</style>
 </head>
 <body>
-  <h1>VYRON — Support</h1>
-  <p class="meta">100 levels of relentless space combat, for iPhone and Mac.</p>
+<div class="wrap">
 
-  <div class="contact">
-    <h2 style="margin-top:0">Contact us</h2>
-    <p>Questions, problems, bugs or ideas — please email:</p>
-    <p><a href="mailto:VyronAdmin@proton.me">VyronAdmin@proton.me</a></p>
-    <p>We read every message and normally reply within 2&ndash;3 days. Please tell us
-       your device (for example &ldquo;iPhone 16 Pro&rdquo; or &ldquo;MacBook Air M3&rdquo;) and what you
-       were doing at the time — it helps enormously.</p>
-    <p><strong>We rely on you to grow this game with us.</strong></p>
+  <div class="brand"><h1>VYRON</h1></div>
+  <div class="tagline">Support &amp; Contact</div>
+
+  <div class="panel focus">
+    <h2>Get in touch</h2>
+    <p>Questions, problems, bugs or ideas — email us:</p>
+    <p><a class="email" href="mailto:VyronAdmin@proton.me">VyronAdmin@proton.me</a></p>
+    <p class="dim">We read every message and normally reply within 2&ndash;3 days. Telling us your
+      device (&ldquo;iPhone&nbsp;16&nbsp;Pro&rdquo;, &ldquo;MacBook&nbsp;Air&nbsp;M3&rdquo;) and what you were doing at the time
+      helps enormously.</p>
+    <p class="terminal">&gt; We rely on you to grow this game with us.</p>
   </div>
 
-  <h2>Controls</h2>
-  <p><strong>iPhone:</strong> touch to move — your ship fires automatically. Tap the pause button to pause; tap the bolt to unleash the Vyric Surge when charged.</p>
-  <p><strong>Mac:</strong> move with the mouse (or keyboard). <code>P</code>/<code>Esc</code> pauses; <code>S</code> fires the Vyric Surge. A full control reference is on the main menu, and keys can be remapped in Settings.</p>
+  <div class="grid">
+    <div class="panel">
+      <h2>Controls — iPhone</h2>
+      <p class="dim">Touch to move; your ship fires automatically. Tap the pause button to pause,
+        and the bolt to unleash the Vyric Surge once it&rsquo;s charged.</p>
+    </div>
+    <div class="panel">
+      <h2>Controls — Mac</h2>
+      <p class="dim">Mouse or keyboard to move. <kbd>P</kbd>/<kbd>Esc</kbd> pauses,
+        <kbd>S</kbd> fires the Vyric Surge. Keys can be remapped in Settings.</p>
+    </div>
+  </div>
 
-  <h2>Saving &amp; iCloud</h2>
-  <p>Save from the pause menu. If you're signed in to iCloud, saves sync automatically between your iPhone and Mac — save on one, load on the other. Saves are encrypted; progress is earned, not edited.</p>
+  <div class="panel">
+    <h2>Saving &amp; iCloud</h2>
+    <p class="dim">Save from the pause menu. Signed in to iCloud, your saves follow you between
+      iPhone and Mac — save on one, load on the other. Saves are encrypted: progress is earned,
+      not edited.</p>
+  </div>
 
-  <h2>Game Center</h2>
-  <p>Sign in to Game Center to appear on the leaderboard and earn the 49 achievements. If you skip sign-in, everything else works normally.</p>
+  <div class="panel">
+    <h2>Game Center</h2>
+    <p class="dim">Sign in to appear on the leaderboard and earn the 49 achievements. Skip it and
+      everything else works exactly the same.</p>
+  </div>
 
-  <h2>Performance</h2>
-  <p>On iPhone, <em>Settings → Frame Rate</em> offers 30 / 60 / AUTO. 30 runs coolest; AUTO balances smoothness and temperature during long sessions.</p>
-  <p>On Mac, <em>Settings → Resolution</em> sets the window size, and Display settings control detail level.</p>
+  <div class="panel">
+    <h2>Performance</h2>
+    <p class="dim"><strong>iPhone:</strong> Settings → Frame Rate offers 30 / 60 / AUTO. 30 runs
+      coolest; AUTO balances smoothness against temperature on long sessions.<br>
+      <strong>Mac:</strong> Settings → Resolution sets the window size; Display settings control
+      detail level.</p>
+  </div>
 
-  <h2>Frequently asked</h2>
-  <p><strong>My saves don't appear on my other device.</strong> Check both devices are signed in to the same Apple Account with iCloud Drive enabled, then relaunch the game — sync usually completes within a minute. If it still doesn't, email us.</p>
-  <p><strong>Is there anything to buy?</strong> No. VYRON is a single purchase — no in-app purchases, no ads, no accounts.</p>
-  <p><strong>Where did my progress go?</strong> Progress is per-save-slot. Load your latest save from the LOAD GAME menu.</p>
-  <p><strong>I found a bug.</strong> Please email <a href="mailto:VyronAdmin@proton.me">VyronAdmin@proton.me</a> with your device and what happened. Bug reports genuinely shape what gets fixed first.</p>
+  <div class="panel">
+    <h2>Frequently asked</h2>
+    <p><strong>My saves don&rsquo;t appear on my other device.</strong></p>
+    <p class="dim">Check both devices use the same Apple Account with iCloud Drive on, then relaunch —
+      sync usually completes within a minute. Still stuck? Email us.</p>
+    <p style="margin-top:14px"><strong>Is there anything to buy?</strong></p>
+    <p class="dim">No. One purchase, no in-app purchases, no ads, no accounts.</p>
+    <p style="margin-top:14px"><strong>Where did my progress go?</strong></p>
+    <p class="dim">Progress is per save slot — load your latest from LOAD GAME.</p>
+    <p style="margin-top:14px"><strong>I found a bug.</strong></p>
+    <p class="dim">Please email <a href="mailto:VyronAdmin@proton.me">VyronAdmin@proton.me</a> with your
+      device and what happened. Bug reports genuinely shape what gets fixed first.</p>
+  </div>
 
-  <p class="meta"><a href="privacy.html">Privacy Policy</a></p>
+  <footer>
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; © 2026 David Foreman
+  </footer>
+
+</div>
 </body>
 </html>
