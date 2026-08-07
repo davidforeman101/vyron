@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — Enemy Database</title>
+<meta name="description" content="The VYRON enemy database: every enemy, mini-boss and boss, with threat ratings, behaviour, strengths, weaknesses and how to defeat them." />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="patrol" aria-hidden="true"></canvas>
+
+<div class="wrap" data-page="database">
+
+  <header class="brand">
+    <h1 class="chrome" data-chrome="vyron">VYRON</h1>
+    <p class="tagline">Enemy Database</p>
+  </header>
+
+  <section class="panel focus">
+    <h2 class="chrome" data-chrome="threat index">Threat Index</h2>
+    <p>Every hostile catalogued by the Vyrion — behaviour, strengths, weaknesses, and how to put
+      it down. The same intelligence the ship's database carries into every run.</p>
+
+    <div class="db-controls">
+      <input type="search" id="db-search" placeholder="Search enemies…" aria-label="Search enemies" />
+      <button class="chip on" data-threat="all">All</button>
+      <button class="chip" data-threat="1">Threat 1–2</button>
+      <button class="chip" data-threat="3">Threat 3</button>
+      <button class="chip" data-threat="4">Threat 4–5</button>
+    </div>
+    <p class="db-count" id="db-count">Loading…</p>
+
+    <div class="cards" id="db-cards"></div>
+  </section>
+
+</div>
+
+<div class="detail" id="db-detail" role="dialog" aria-modal="true" aria-label="Enemy detail">
+  <button class="detail-close" aria-label="Close">✕</button>
+  <div class="detail-inner" id="db-detail-inner"></div>
+</div>
+
+<script src="chrome.js"></script>
+<script src="starfield.js"></script>
+<script src="data-ships.js"></script>
+<script src="ships.js"></script>
+<script src="site.js"></script>
+<script src="data-enemies.js"></script>
+<script src="database.js"></script>
+</body>
+</html>

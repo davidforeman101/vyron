@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — Relentless Space Combat</title>
+<meta name="description" content="VYRON is a modern space shooter for iPhone and Mac. 100 levels, 7 multi-phase bosses, 8 ship evolutions, and a Nemesis that learns how you fight." />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="patrol" aria-hidden="true"></canvas>
+
+<div class="wrap" data-page="overview">
+
+  <header class="brand">
+    <h1 class="chrome" data-chrome="vyron">VYRON</h1>
+    <p class="tagline">Relentless Space Combat</p>
+  </header>
+
+  <section class="panel focus">
+    <p class="hero">100 levels of relentless combat.</p>
+    <p class="hero-sub">A modern space shooter built for iPhone and Mac — fast, tactical, and
+      beautiful. Fight through a campaign of escalating enemy waves, evolve your ship across
+      8 tiers, and face bosses that demand more than reflexes.</p>
+
+    <div class="stats">
+      <div class="stat"><b>100</b><span>Levels</span></div>
+      <div class="stat"><b>50+</b><span>Enemies</span></div>
+      <div class="stat"><b>7</b><span>Bosses</span></div>
+      <div class="stat"><b>8</b><span>Ship tiers</span></div>
+      <div class="stat"><b>49</b><span>Achievements</span></div>
+    </div>
+  </section>
+
+  <section class="panel focus stage-panel">
+    <h2 class="chrome" data-chrome="the fleet">The Fleet</h2>
+    <p class="sub">Eight tiers of Vyrion fighter, each earned. Watch the line evolve —
+      from the Vanguard you're issued to the Colossus you finish in.</p>
+    <div class="ship-stage-wrap">
+      <canvas class="ship-stage" aria-hidden="true"></canvas>
+      <p class="ship-name" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="see it running">See it running</h2>
+    <div class="shots">
+      <div class="shot"><img src="shots/shot-01.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-02.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-03.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-04.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-05.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-06.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-07.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+      <div class="shot"><img src="shots/shot-08.jpg" alt="VYRON gameplay" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="what you are up against">What you're up against</h2>
+
+    <div class="feat-grid">
+      <div class="feat">
+        <h3 class="chrome" data-chrome="the nemesis">The Nemesis</h3>
+        <p>Studies how you play and comes back with a loadout built for your habits.
+          Beat it once and it remembers.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="the swarm">The Swarm</h3>
+        <p>Coordinates, flanks, adapts. Not a formation — a collective that hunts as one.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="sovereigns">Sovereigns</h3>
+        <p>Alien capital ships that gate the level. All forward momentum halts and
+          reinforcements stop until one goes down.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="bosses">Bosses</h3>
+        <p>Seven gatekeepers. Each fights in phases — defensive, then aggressive, then
+          desperate — and none of them let you through until your flying and your ship are
+          both ready.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="bonus rounds">Bonus Rounds</h3>
+        <p>Eleven kinds. Tunnels, asteroid fields, blockades, wormholes, gravity wells,
+          motherships, mirrors — each with its own rules.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="the arcade">The Arcade</h3>
+        <p>Forty-three side rounds you earn, not buy — each one unlocked by an achievement.
+          Swarm, Tunnel, Unstoppable, Boss, and Dodge, where your weapons are switched off
+          entirely and staying alive is the only score.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="credits">Credits</h3>
+        <p>Everything you destroy pays. Bonus coins drop for pilots willing to go and get them.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="upgrades">Upgrades</h3>
+        <p>Weapon power, guns, side guns, fire rate, shields, health, drones, defence lasers.
+          There is always another one to chase.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="ship evolution">Ship Evolution</h3>
+        <p>Eight tiers. The ship you finish in looks nothing like the one you started in.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="the vyric surge">The Vyric Surge</h3>
+        <p>Charges as you fight, waits until you call on it, then buys you the moment you needed.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="achievements">Achievements</h3>
+        <p>Forty-nine of them — kill counts, score milestones, upgrade tokens. They're the
+          keys to the Arcade, and the leaderboard is there to argue over.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="the database">The Database</h3>
+        <p>Every enemy catalogued with live demos and threat analysis —
+          <a href="database.html">read it before you fly</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="every screen">Every screen</h2>
+    <ul>
+      <li>iPhone and Mac — one game, native on each</li>
+      <li>iCloud save sync — start on your phone, continue on your Mac</li>
+      <li>Game Center — leaderboards and 49 achievements</li>
+      <li>Full game controller support, plus touch and keyboard/mouse</li>
+      <li>Haptic feedback on iPhone</li>
+      <li>30/60/AUTO frame rate modes — smooth or cool, your choice</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="private by design">Private by design</h2>
+    <ul>
+      <li>No accounts, no ads, no tracking, no data collection</li>
+      <li>Saves are encrypted on-device; sync uses your own iCloud</li>
+    </ul>
+    <p class="terminal">&gt; Bonus rounds. Dynamic weather. A hand-tuned campaign. One more run.</p>
+  </section>
+
+  <section class="panel focus why">
+    <h2 class="chrome" data-chrome="why i built it">Why I built it</h2>
+
+    <p class="lead">I wanted a game I could disappear into for 20 minutes.</p>
+
+    <p>I love complex games, but sometimes I don't want to learn a huge world, remember where I
+      was, or commit an entire evening. I wanted something I could pick up, play properly, and put
+      down again.</p>
+
+    <p>There are plenty of simple games that work that way, but they often have a single mechanic
+      or dimension. I wanted to take that simplicity of commitment and combine it with the depth of
+      a real game.</p>
+
+    <p class="pullquote">So VYRON has 100 levels, increasingly difficult enemies, bosses, bonus
+      rounds, rewards, upgrades, ship evolution and an enemy that actually learns how you fight.</p>
+
+    <p>You can play for twenty minutes and walk away. Or you can keep going.</p>
+
+    <p>I built VYRON because I wanted that game to exist.</p>
+
+    <div class="signoff">
+      <span class="chrome signoff-chrome" data-chrome="a proper game">A proper game.</span>
+      <span class="signoff-by">David Foreman</span>
+    </div>
+  </section>
+
+</div>
+
+<script src="chrome.js"></script>
+<script src="starfield.js"></script>
+<script src="data-ships.js"></script>
+<script src="ships.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

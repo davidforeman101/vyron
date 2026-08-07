@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — The Vyron Codex</title>
+<meta name="description" content="The Vyron Codex: the world of Vyron, the Vyrion who defend it, the Vyra they live by, and Vyra the ship AI forged from those principles." />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="patrol" aria-hidden="true"></canvas>
+
+<div class="wrap" data-page="codex">
+
+  <header class="brand">
+    <h1 class="chrome" data-chrome="vyron">VYRON</h1>
+    <p class="tagline">The Vyron Codex</p>
+  </header>
+
+  <section class="panel focus">
+    <p class="codex-lead">A civilisation on the edge of known space, the people who defend it,
+      and the code they live by.</p>
+    <p class="terminal">&gt; Codex access granted. Welcome, Vyrion.</p>
+  </section>
+
+  <section class="panel amber">
+    <!-- Cycles one phrase at a time in the chrome font. -->
+    <div class="creed" id="creed"
+         aria-label="You are Vyrion. You live by the Vyra. This is Vyron.">
+      <span class="creed-line chrome" data-chrome="you are vyrion">You are Vyrion</span>
+      <span class="creed-line chrome" data-chrome="you live by the vyra">You live by the Vyra</span>
+      <span class="creed-line chrome" data-chrome="this is vyron">This is Vyron</span>
+    </div>
+  </section>
+
+  <div class="pillars">
+    <section class="panel pillar">
+      <h2 class="chrome" data-chrome="the world of vyron">The World of Vyron</h2>
+      <p>Vyron is a civilisation on the edge of known space.</p>
+      <p>For generations, the Vyrion have defended their borders against relentless waves of
+        hostile forces.</p>
+      <p class="terminal">&gt; Survival is not guaranteed — it is earned.</p>
+    </section>
+
+    <section class="panel pillar">
+      <h2 class="chrome" data-chrome="the vyrion">The Vyrion</h2>
+      <p>The Vyrion are the people of Vyron. Every Vyrion is both citizen and defender.</p>
+      <p>They are defined not by what they destroy, but by what they choose to protect.</p>
+      <p class="terminal">&gt; You are Vyrion.</p>
+    </section>
+
+    <section class="panel pillar">
+      <h2 class="chrome" data-chrome="the vyra">The Vyra</h2>
+      <p>The Vyra is the code the Vyrion live by — an ethic of resilience, precision, and purpose.
+        It teaches that survival without principle is merely existing.</p>
+      <p>The Vyra demands excellence: in combat, in judgement, in the protection of those who
+        cannot fight.</p>
+    </section>
+
+    <section class="panel pillar">
+      <h2 class="chrome" data-chrome="vyra ship ai">Vyra — Ship AI</h2>
+      <p>Your ship's AI is named Vyra — a tribute to the code that defines the Vyrion way of life.
+        She monitors systems, tracks threats, and offers guidance.</p>
+      <p>Her personality is derived from decades of constant battles, but she shines through: a
+        light in the darkness of the void.</p>
+      <p class="terminal">&gt; Vyra is not just a tool. She is a companion forged from the
+        principles you defend.</p>
+    </section>
+  </div>
+
+</div>
+
+<script src="chrome.js"></script>
+<script src="starfield.js"></script>
+<script src="data-ships.js"></script>
+<script src="ships.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

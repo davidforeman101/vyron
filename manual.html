@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — Pilot's Manual</title>
+<meta name="description" content="The VYRON pilot's manual: controls, the armory, the Vyric Surge, power-ups, ship evolution, bosses, the Nemesis, the Swarm and bonus rounds." />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="patrol" aria-hidden="true"></canvas>
+
+<div class="wrap" data-page="manual">
+
+  <header class="brand">
+    <h1 class="chrome" data-chrome="vyron">VYRON</h1>
+    <p class="tagline">Pilot's Manual</p>
+  </header>
+
+  <section class="panel focus">
+    <h2 class="chrome" data-chrome="first flight">First Flight</h2>
+    <p>Everything here is learnable in a single run. Position, timing and target priority are the
+      whole game — stay moving, keep the swarm from boxing you in, and read what each enemy is
+      about to do before it does it.</p>
+    <p>The rest of this manual is what the ship's database would tell you, if you asked it nicely.</p>
+    <p class="terminal">&gt; Vyra online. Systems nominal. Good hunting, Vyrion.</p>
+  </section>
+
+  <!-- ============ CONTROLS ============ -->
+
+  <div class="grid">
+    <section class="panel">
+      <h2 class="chrome" data-chrome="controls mac">Controls — Mac</h2>
+      <p class="sub">Fly with the mouse or the keyboard, whichever suits you. Every binding below
+        can be remapped in Settings, and full game controller support is built in.</p>
+      <dl class="spec">
+        <div><dt>Mouse</dt><dd>Steer the ship</dd></div>
+        <div><dt><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd></dt><dd>Steer by keyboard</dd></div>
+        <div><dt>Click / <kbd>L.Shift</kbd></dt><dd>Fire — hold it down</dd></div>
+        <div><dt><kbd>Tab</kbd> / scroll</dt><dd>Switch active weapon</dd></div>
+        <div><dt><kbd>S</kbd></dt><dd>Unleash the Vyric Surge</dd></div>
+        <div><dt><kbd>Esc</kbd></dt><dd>Pause</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel">
+      <h2 class="chrome" data-chrome="controls iphone">Controls — iPhone</h2>
+      <p class="sub">Touch and drag anywhere to fly. Your guns run themselves on iPhone, so both
+        hands are free for the part that matters — not being where the bullets are.</p>
+      <dl class="spec">
+        <div><dt>Drag</dt><dd>Steer the ship</dd></div>
+        <div><dt>Automatic</dt><dd>Weapons fire on their own</dd></div>
+        <div><dt>Bolt</dt><dd>Unleash the Vyric Surge</dd></div>
+        <div><dt>Pause</dt><dd>Stop the clock</dd></div>
+        <div><dt>Haptics</dt><dd>Every hit, felt</dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <!-- ============ ARMORY ============ -->
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="the armory">The Armory</h2>
+    <p>Five weapon systems, each with a distinct tactical role. The right tool matters far more
+      than the biggest one — and you can switch mid-battle, so switch.</p>
+
+    <div class="feat-grid">
+      <div class="feat">
+        <h3 class="chrome" data-chrome="basic cannon">Basic Cannon</h3>
+        <p><span class="badge">100%</span> Standard plasma projectiles. The yardstick every other
+          weapon is measured against, and never the wrong answer.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="multi fire">Multi-Fire</h3>
+        <p><span class="badge">120%</span> Parallel bullets across a wider front. Trades precision
+          for coverage — ideal when the screen fills up.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="rapid laser">Rapid Laser</h3>
+        <p><span class="badge">130%</span> An instant beam with no travel time, so fast movers
+          can't outrun it. It builds heat — ease off before it locks you out.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="chain lightning">Chain Lightning</h3>
+        <p><span class="badge">80%</span> Arcs from one target to the next. Weakest on paper,
+          devastating against a cluster — let them group up, then let go.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="smart missile">Smart Missile</h3>
+        <p><span class="badge">200%</span> Heavy ordnance with splash damage. Your answer to
+          armour, and to anything that refuses to die on schedule.</p>
+      </div>
+    </div>
+
+    <h3 class="chrome" data-chrome="upgrades">Upgrades</h3>
+    <p>Credits earned on every run feed the next unlock. There is always another gun to try and
+      another upgrade to chase:</p>
+    <ul>
+      <li><strong>Weapon power</strong> — raw damage per shot</li>
+      <li><strong>Guns &amp; side guns</strong> — more barrels, wider coverage</li>
+      <li><strong>Fire rate</strong> — shorter gaps between volleys</li>
+      <li><strong>Shields &amp; health</strong> — survive the mistakes</li>
+      <li><strong>Drones</strong> — autonomous escorts that fight alongside you</li>
+      <li><strong>Defence lasers</strong> — intercept what gets close</li>
+    </ul>
+  </section>
+
+  <!-- ============ VYRIC SURGE ============ -->
+
+  <section class="panel amber">
+    <h2 class="chrome" data-chrome="the vyric surge">The Vyric Surge</h2>
+    <p>Your ultimate. It charges as you fight and holds until you call on it — then hunts the
+      screen clean and buys you the moment you needed.</p>
+    <dl class="spec">
+      <div><dt>Charging</dt><dd>Every kill fills the bar. Roughly fifty of them to fill it.</dd></div>
+      <div><dt>Release</dt><dd>Fire it when the bar is full — it launches and seeks the nearest threat.</dd></div>
+      <div><dt>Duration</dt><dd>Fifteen seconds of open season.</dd></div>
+      <div><dt>Behaviour</dt><dd>Homes target to target and bounces off the screen edges.</dd></div>
+      <div><dt>The catch</dt><dd>Kills made <b>during</b> a surge don't charge the next one. Charge only builds between them — so spend it when it counts, not when it's convenient.</dd></div>
+    </dl>
+    <p class="sub">Charge. Release. Dominate.</p>
+  </section>
+
+  <!-- ============ POWER-UPS ============ -->
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="power ups and coins">Power-Ups &amp; Coins</h2>
+    <p>Enemies drop more than wreckage. Everything below is worth breaking formation for —
+      most of it, anyway.</p>
+    <dl class="spec">
+      <div><dt>Health</dt><dd>Patches the hull — or pays out in score if you're already whole</dd></div>
+      <div><dt>Shield</dt><dd>A protective barrier, twenty seconds of breathing room</dd></div>
+      <div><dt>Weapon</dt><dd>Cycles you to the next weapon in the rack</dd></div>
+      <div><dt>Score</dt><dd>Straight points, no strings</dd></div>
+      <div><dt>Drone</dt><dd>Deploys a combat drone to fight alongside you</dd></div>
+      <div><dt>Vesta Core</dt><dd>A serious credit payout. Kill five Vesta and the flame yields one.</dd></div>
+      <div><dt>Side Gun+</dt><dd>An extra gun for a minute</dd></div>
+      <div><dt>Power+</dt><dd>Maximum weapon power for thirty seconds</dd></div>
+    </dl>
+
+    <div class="grid" style="margin-top:18px">
+      <div class="feat">
+        <h3 class="chrome" data-chrome="kill streaks">Kill Streaks</h3>
+        <p>Destroy three of the same enemy type in a row and they'll drop a credit bonus. The
+          tougher the enemy, the bigger the payout — so hunting one species deliberately pays
+          better than clearing whatever's nearest.</p>
+      </div>
+      <div class="feat">
+        <h3 class="chrome" data-chrome="upgrade tokens">Upgrade Tokens</h3>
+        <p>Dropped at random once you're past the opening levels. Five tokens buy one free
+          upgrade in the shop, and they keep between runs — so a bad run is never a wasted one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHIP EVOLUTION ============ -->
+
+  <section class="panel focus stage-panel">
+    <h2 class="chrome" data-chrome="ship evolution">Ship Evolution</h2>
+    <p class="sub">Eight hulls, each with its own silhouette, colours and character — from the
+      Vanguard you start in to the Colossus you earn. Credits from the campaign carry you up the
+      ladder one hull at a time, and every step looks and feels like a promotion.</p>
+    <div class="ship-stage-wrap">
+      <canvas class="ship-stage" aria-hidden="true"></canvas>
+      <p class="ship-name" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ============ BOSSES ============ -->
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="the gatekeepers">The Gatekeepers</h2>
+    <p>Seven multi-phase encounters stand between you and the far end of the campaign. Each one
+      is a gate: beat it or stay where you are. Each one has a tell, and each tell has an answer.</p>
+    <dl class="spec">
+      <div><dt>Level 10</dt><dd><b>Sentinel</b> — rotating shields. Find the gaps.</dd></div>
+      <div><dt>Level 20</dt><dd><b>Warden</b> — a siege ring. Destroy the weapon pods.</dd></div>
+      <div><dt>Level 30</dt><dd><b>Harbinger</b> — teleports, and never arrives alone.</dd></div>
+      <div><dt>Level 40+</dt><dd><b>Hydra</b> — three heads, and it enrages as it's wounded.</dd></div>
+      <div><dt>Level 60+</dt><dd><b>Architect</b> — builds barriers around you mid-fight.</dd></div>
+      <div><dt>Level 80+</dt><dd><b>Dreadnought</b> — an ultimate warship. Overwhelming fire.</dd></div>
+      <div><dt>Level 100</dt><dd><b>Overlord</b> — the final reckoning.</dd></div>
+    </dl>
+    <p class="sub">Sovereign mini-bosses arrive far more often, freezing progress every few levels
+      until they're put down. Deal with them first — nothing else advances while they're alive.</p>
+  </section>
+
+  <!-- ============ NEMESIS ============ -->
+
+  <section class="panel amber">
+    <h2 class="chrome" data-chrome="the nemesis">The Nemesis</h2>
+    <p>One enemy remembers you. It returns across a campaign, and it is not the same ship each
+      time — it studies how you fight and comes back built to beat it.</p>
+    <dl class="spec">
+      <div><dt>First meeting</dt><dd>Basic attacks. It breaks off at half health — and it isn't running.</dd></div>
+      <div><dt>The return</dt><dd>Shields tuned against the weapon you used last time.</dd></div>
+      <div><dt>The hunter</dt><dd>It predicts your movement, and it carries an escape pod.</dd></div>
+      <div><dt>Final reckoning</dt><dd>Full power, everything it has learned, and no way out for either of you.</dd></div>
+    </dl>
+    <p class="sub">It reads your weapon choice, your dodge patterns and the corners of the screen
+      you retreat to. It wears the damage you did to it. Change how you fly, or it will have
+      already worked out where you're going.</p>
+    <p class="terminal">&gt; It's watching.</p>
+  </section>
+
+  <!-- ============ SWARM ============ -->
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="the swarm">The Swarm</h2>
+    <p>Not one enemy but hundreds, flocking as a single organism around a core. You cannot shoot
+      the middle of it until you've thinned the outside.</p>
+    <dl class="spec">
+      <div><dt>How to break it</dt><dd>Sustained fire strips its particles; the core is only exposed once enough of them are gone. Chain Lightning tears through the cluster, heavy missiles finish the core.</dd></div>
+      <div><dt>Variants</dt><dd>Some slow you with ice, some leave fire behind, some jam your weapons outright, some darken the screen and drag you in, and some poison the space they die in.</dd></div>
+      <div><dt>The gift</dt><dd>Every third swarm you destroy leaves a golden swarm behind that turns on its own kind and fights for you.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ BONUS ROUNDS ============ -->
+
+  <section class="panel">
+    <h2 class="chrome" data-chrome="bonus rounds">Bonus Rounds</h2>
+    <p>Breaks in the campaign with their own rules and their own rewards. They arrive on a rhythm
+      you'll learn to feel coming — clear one well and you return to the fight better armed than
+      you left it.</p>
+    <dl class="spec">
+      <div><dt>Enemy Swarm</dt><dd>The collective, undiluted</dd></div>
+      <div><dt>Blockade</dt><dd>Get through what's in the way</dd></div>
+      <div><dt>Asteroid Field</dt><dd>No enemies. Just physics, and no excuses.</dd></div>
+      <div><dt>Armed Force</dt><dd>Everything shoots back</dd></div>
+      <div><dt>Crucible</dt><dd>A trial with the rules against you</dd></div>
+      <div><dt>Tunnel Rush</dt><dd>Precision flying at speed</dd></div>
+      <div><dt>Wormhole</dt><dd>Rare. Disorientating. Lucrative.</dd></div>
+      <div><dt>Gravity Chaos</dt><dd>Everything you know about movement, suspended</dd></div>
+      <div><dt>Mirror Battle</dt><dd>You, against you</dd></div>
+      <div><dt>Mothership</dt><dd>One enormous target, deep in the campaign</dd></div>
+    </dl>
+    <p class="sub">Clear enough of the right things and the Arcade opens — a separate run of
+      challenge rounds, unlocked by achievement rather than by level, and played on its own terms.</p>
+  </section>
+
+  <!-- ============ TIPS ============ -->
+
+  <section class="panel focus">
+    <h2 class="chrome" data-chrome="combat doctrine">Combat Doctrine</h2>
+    <ul>
+      <li>Kill fast and keep killing — speed builds your score multiplier, and hesitation resets it.</li>
+      <li>Concentrated fire lands critical hits for double damage. Spraying does not.</li>
+      <li>Match the weapon to the threat. Switching mid-battle is free; dying is not.</li>
+      <li>Let enemies cluster before you reach for Chain Lightning.</li>
+      <li>Hold the Surge for the moment you're about to lose, not the moment you're winning.</li>
+      <li>Sovereigns freeze your progress. Kill them first, every time.</li>
+      <li>Against the Swarm, strip the outside before you go looking for the core.</li>
+      <li>Study the database before you fly. Everything out there has a weakness on file.</li>
+    </ul>
+  </section>
+
+  <!-- ============ PERFORMANCE + LINK ============ -->
+
+  <div class="grid">
+    <section class="panel">
+      <h2 class="chrome" data-chrome="performance">Performance</h2>
+      <p class="sub"><strong>iPhone:</strong> Settings → Frame Rate offers 30 / 60 / AUTO. 30 runs
+        coolest; AUTO balances smoothness against temperature on long sessions.<br>
+        <strong>Mac:</strong> Settings → Resolution sets the window size; Display settings control
+        detail level.</p>
+    </section>
+    <section class="panel">
+      <h2 class="chrome" data-chrome="know your enemy">Know Your Enemy</h2>
+      <p class="sub">Every hostile you meet is catalogued — behaviour, strengths, weaknesses and
+        the way to put it down.</p>
+      <p><a href="database.html">Open the enemy database →</a></p>
+    </section>
+  </div>
+
+</div>
+
+<script src="chrome.js"></script>
+<script src="starfield.js"></script>
+<script src="data-ships.js"></script>
+<script src="ships.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
