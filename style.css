@@ -103,6 +103,22 @@ h2:not(.chrome-ready){color:var(--amber)}
   transition:box-shadow .2s ease,border-color .2s ease;
 }
 .nav.stuck{box-shadow:0 10px 34px rgba(0,0,0,.6);border-color:var(--line-hi)}
+
+/* Small wordmark inside the nav — appears only once the nav sticks, so the
+   VYRON title is still present after the big one scrolls away.
+   .chrome sets display:block, so these rules need the extra specificity. */
+.nav .nav-brand.chrome{
+  display:none;
+  font-size:21px;                 /* drives glyph height (glyphs are 1em) */
+  line-height:0;padding:0 14px 0 6px;border:0;background:none;
+  align-self:center;opacity:0;transition:opacity .2s ease;
+}
+.nav.stuck .nav-brand.chrome{display:inline-flex;align-items:center;opacity:.95}
+.nav.stuck .nav-brand.chrome:hover{opacity:1}
+.nav .nav-brand .chrome-glyph{filter:drop-shadow(0 0 8px rgba(90,180,255,.5))}
+@media (max-width:560px){
+  .nav .nav-brand.chrome{font-size:16px;padding:0 6px 0 2px}
+}
 /* When stuck, lay a full-width blurred bar behind the pill so content
    scrolling underneath is covered cleanly instead of half-hidden. */
 .nav::before{
@@ -276,7 +292,10 @@ footer a:hover{color:var(--cyan)}
   body{font-size:17px}
   .wrap{padding:0 15px 60px}
   .panel{padding:20px 18px}
-  .nav a{padding:8px 14px;letter-spacing:.1em;font-size:15px}
+  /* Tighter tracking, padding and gap (never a smaller font) so the sticky
+     wordmark and all six links still fit two rows on a phone, not three. */
+  .nav{gap:5px}
+  .nav a{padding:8px 8px;letter-spacing:.03em;font-size:15px}
   .brand{padding:34px 0 4px}
   .lightbox button{width:44px;height:44px;font-size:22px}
   .lb-prev{left:8px}.lb-next{right:8px}

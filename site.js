@@ -21,6 +21,18 @@
 
     var nav = document.createElement('nav');
     nav.className = 'nav';
+
+    // Compact wordmark, revealed only once the nav sticks — so the title never
+    // disappears completely as you scroll. Hidden at the top, where the big
+    // one is already on screen.
+    var brand = document.createElement('a');
+    brand.className = 'nav-brand chrome';
+    brand.href = 'index.html';
+    brand.setAttribute('data-chrome', 'vyron');
+    brand.setAttribute('aria-label', 'VYRON — home');
+    brand.textContent = 'VYRON';
+    nav.appendChild(brand);
+
     PAGES.forEach(function (p) {
       var a = document.createElement('a');
       a.href = p.href;
@@ -32,6 +44,9 @@
     var header = wrap.querySelector('.brand');
     if (header && header.nextSibling) wrap.insertBefore(nav, header.nextSibling);
     else wrap.insertBefore(nav, wrap.firstChild);
+
+    // chrome.js has already run by now, so render this one explicitly.
+    if (window.vyronChrome) window.vyronChrome(nav);
 
     var foot = document.createElement('footer');
     var links = PAGES.filter(function (p) { return p.id !== current; })
@@ -51,12 +66,27 @@
       Array.prototype.forEach.call(items, function (el) { el.classList.add('in'); });
       return;
     }
+    // threshold MUST stay 0. It is a fraction of the *element*, not the screen,
+    // so a tall element can never reach a non-zero threshold on a small viewport:
+    // the Database panel is ~19,000px on a phone, of which one screen is 2.7% —
+    // under a 0.05 threshold it never fired and the whole page stayed invisible.
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+
+    // Safety net: if anything is still hidden shortly after load, show it.
+    // Content must never be invisible because an animation didn't fire.
+    setTimeout(function () {
+      Array.prototype.forEach.call(items, function (el) {
+        if (!el.classList.contains('in') &&
+            el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('in');
+        }
+      });
+    }, 1200);
   }
   window.vyronReveal = reveals;
 
