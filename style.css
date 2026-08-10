@@ -205,18 +205,33 @@ ul li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 }
 .hero-sub{text-align:center;color:var(--text);font-size:18px;max-width:680px;margin:0 auto}
 
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(130px,100%),1fr));gap:12px;margin:24px 0 4px}
+/* Six across on a laptop, three rows of two on a phone. Explicit column
+   counts rather than auto-fit, so the count never drifts with the viewport. */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:24px 0 4px}
 .stat{
-  border:1px solid var(--line);border-radius:13px;padding:18px 10px;text-align:center;
+  border:1px solid var(--line);border-radius:13px;padding:18px 8px;text-align:center;
   background:rgba(8,20,36,.6);
   transition:opacity .45s ease,transform .45s ease;
 }
 .js .stat{opacity:0;transform:translateY(12px)}
 .js .stat.in{opacity:1;transform:none}
-.stat b{display:block;font-size:34px;color:var(--cyan);font-weight:700;line-height:1.1;
-  text-shadow:0 0 18px rgba(95,223,255,.4)}
-.stat span{display:block;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--text-2);margin-top:6px}
+.stat b{display:block;font-size:clamp(26px,2.6vw,34px);color:var(--cyan);font-weight:700;
+  line-height:1.1;text-shadow:0 0 18px rgba(95,223,255,.4)}
+/* Tight tracking so "ACHIEVEMENTS" and "ARCADE ROUNDS" stay on one line
+   in a sixth of the panel */
+.stat span{display:block;font-size:15px;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--text-2);margin-top:6px;line-height:1.25}
+
+/* Between phone and laptop, three across reads better than six cramped */
+@media (max-width:860px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:560px){
+  .stats{grid-template-columns:repeat(2,1fr);gap:9px}
+  .stat{padding:12px 6px;border-radius:11px}
+  .stat b{font-size:27px}
+  .stat span{font-size:15px;margin-top:3px;letter-spacing:.01em}
+}
 
 /* ---------- Screenshot gallery ---------- */
 
