@@ -20,7 +20,14 @@
     <p class="tagline">Relentless Space Combat</p>
   </header>
 
-  <section class="panel focus">
+  <!-- The page opens with the fleet flying past, not with prose. Each hull
+       arrives, holds, is named, and leaves — the game's own menu reveal. -->
+  <section class="panel focus hero-panel">
+    <div class="ship-stage-wrap hero-stage">
+      <canvas class="ship-stage" aria-hidden="true"></canvas>
+      <p class="ship-name" aria-live="polite"></p>
+    </div>
+
     <p class="hero">100 levels of relentless combat.</p>
     <p class="hero-sub">A modern space shooter for iPhone and Mac. Fast, tactical, and
       beautiful.</p>
@@ -31,16 +38,6 @@
       <div class="stat"><b>7</b><span>Bosses</span></div>
       <div class="stat"><b>8</b><span>Ship tiers</span></div>
       <div class="stat"><b>136</b><span>Achievements</span></div>
-    </div>
-  </section>
-
-  <section class="panel focus stage-panel">
-    <h2 class="chrome" data-chrome="the fleet">The Fleet</h2>
-    <p class="sub">Eight tiers of Vyrion fighter, each earned. Watch the line evolve —
-      from the Vanguard you're issued to the Colossus you finish in.</p>
-    <div class="ship-stage-wrap">
-      <canvas class="ship-stage" aria-hidden="true"></canvas>
-      <p class="ship-name" aria-live="polite"></p>
     </div>
   </section>
 
@@ -112,8 +109,8 @@
       </div>
       <div class="feat">
         <h3 class="chrome" data-chrome="achievements">Achievements</h3>
-        <p>Forty-nine of them — kill counts, score milestones, upgrade tokens. They're the
-          keys to the Arcade, and the leaderboard is there to argue over.</p>
+        <p>A hundred and thirty-six — kill counts, score milestones, upgrade tokens. They're
+          the keys to the Arcade, and forty-nine of them mirror to Game Center.</p>
       </div>
       <div class="feat">
         <h3 class="chrome" data-chrome="the database">The Database</h3>

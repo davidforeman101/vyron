@@ -339,6 +339,18 @@ footer a:hover{color:var(--cyan)}
 canvas.ship-stage{
   display:block;width:100%;height:clamp(300px,42vw,420px);
 }
+
+/* Hero stage — the first thing on the page, so it sits above the headline
+   and runs edge to edge inside the panel. Shorter than the standalone stage
+   so the headline and stats still make the first screen on a phone. */
+.hero-panel{padding-top:18px}
+.hero-stage{margin:0 0 20px}
+.hero-stage canvas.ship-stage{height:clamp(210px,34vw,340px)}
+@media (max-width:560px){
+  .hero-panel{padding:14px 14px 20px}
+  .hero-stage{margin:0 0 16px;border-radius:12px}
+  .hero-stage canvas.ship-stage{height:215px}
+}
 .ship-name{
   position:absolute;left:0;right:0;bottom:16px;text-align:center;
   font-family:var(--mono);font-weight:700;

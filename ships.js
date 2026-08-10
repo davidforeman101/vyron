@@ -507,7 +507,9 @@
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      k = Math.max(0.75, Math.min(1.5, h / 300));   // proportional to the stage
+      k = Math.max(0.95, Math.min(1.5, h / 300));   // proportional to the stage;
+      // floor raised for the short hero stage on phones, where h/300 would
+      // otherwise pin the ship at its smallest and leave the frame looking empty
       targetY = h * 0.52;
       if (flyY === 0) flyY = h + 60 * k;
     }
