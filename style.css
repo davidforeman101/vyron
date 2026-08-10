@@ -207,9 +207,9 @@ ul li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 
 /* Six across on a laptop, three rows of two on a phone. Explicit column
    counts rather than auto-fit, so the count never drifts with the viewport. */
-.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:24px 0 4px}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin:24px 0 4px}
 .stat{
-  border:1px solid var(--line);border-radius:13px;padding:18px 8px;text-align:center;
+  border:1px solid var(--line);border-radius:13px;padding:18px 4px;text-align:center;
   background:rgba(8,20,36,.6);
   transition:opacity .45s ease,transform .45s ease;
 }
@@ -217,20 +217,24 @@ ul li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 .js .stat.in{opacity:1;transform:none}
 .stat b{display:block;font-size:clamp(26px,2.6vw,34px);color:var(--cyan);font-weight:700;
   line-height:1.1;text-shadow:0 0 18px rgba(95,223,255,.4)}
-/* Tight tracking so "ACHIEVEMENTS" and "ARCADE ROUNDS" stay on one line
-   in a sixth of the panel */
-.stat span{display:block;font-size:15px;letter-spacing:.02em;text-transform:uppercase;
+/* "ACHIEVEMENTS" is one word, so it cannot wrap — if it doesn't fit a sixth
+   of the panel it overflows the box. At 15px Courier it needs ~108px, so the
+   box must keep well clear of that: hence gap 9 / padding 4 above, giving
+   ~127px. No letter-spacing here — it bought nothing but risk. */
+.stat span{display:block;font-size:15px;letter-spacing:0;text-transform:uppercase;
   color:var(--text-2);margin-top:6px;line-height:1.25}
 
-/* Between phone and laptop, three across reads better than six cramped */
-@media (max-width:860px){
+/* Six across only once the panel is genuinely wide enough for the longest
+   label. Below ~1000px the wrap is still growing, each box drops under
+   120px inside, and ACHIEVEMENTS starts to touch the edges. */
+@media (max-width:999px){
   .stats{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:560px){
-  .stats{grid-template-columns:repeat(2,1fr);gap:9px}
-  .stat{padding:12px 6px;border-radius:11px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:7px}
+  .stat{padding:12px 3px;border-radius:11px}
   .stat b{font-size:27px}
-  .stat span{font-size:15px;margin-top:3px;letter-spacing:.01em}
+  .stat span{font-size:15px;margin-top:3px;letter-spacing:0}
 }
 
 /* ---------- Screenshot gallery ---------- */
