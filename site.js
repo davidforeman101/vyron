@@ -12,10 +12,6 @@
     { id: 'privacy',  href: 'privacy.html',  label: 'Privacy'  }
   ];
 
-  // Universal Purchase — one App Store record serves both iPhone and Mac,
-  // so a single link is correct for both platforms.
-  var STORE_URL = 'https://apps.apple.com/us/app/vyron/id6778002261';
-
   /* ---------- Shared nav + footer ---------- */
 
   function chrome() {
@@ -45,15 +41,6 @@
       nav.appendChild(a);
     });
 
-    // Get VYRON — distinct colour so it reads as an action, not a page.
-    var cta = document.createElement('a');
-    cta.className = 'nav-cta';
-    cta.href = STORE_URL;
-    cta.target = '_blank';
-    cta.rel = 'noopener';
-    cta.textContent = 'Get VYRON';
-    nav.appendChild(cta);
-
     var header = wrap.querySelector('.brand');
     if (header && header.nextSibling) wrap.insertBefore(nav, header.nextSibling);
     else wrap.insertBefore(nav, wrap.firstChild);
@@ -65,10 +52,7 @@
     var links = PAGES.filter(function (p) { return p.id !== current; })
       .map(function (p) { return '<a href="' + p.href + '">' + p.label + '</a>'; })
       .join(' &nbsp;·&nbsp; ');
-    foot.innerHTML =
-      '<a class="footer-cta" href="' + STORE_URL + '" target="_blank" rel="noopener">Get VYRON on the App Store</a>' +
-      '<p style="margin-top:14px">' + links + '</p>' +
-      '<p style="margin-top:12px">© 2026 David Foreman &nbsp;·&nbsp; ' +
+    foot.innerHTML = links + '<p style="margin-top:12px">© 2026 David Foreman &nbsp;·&nbsp; ' +
       '<a href="mailto:VyronAdmin@proton.me">VyronAdmin@proton.me</a></p>';
     wrap.appendChild(foot);
   }

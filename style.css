@@ -141,49 +141,6 @@ h2:not(.chrome-ready){color:var(--amber)}
   box-shadow:0 0 20px rgba(95,223,255,.38);font-weight:700;
 }
 
-/* Get VYRON — amber, deliberately distinct from the cyan page pills so it
-   reads as an action rather than another page in the nav. */
-.nav a.nav-cta{
-  color:#241900;background:linear-gradient(180deg,#ffe9a8,#ffd94d);
-  font-weight:700;box-shadow:0 0 16px rgba(255,217,77,.4);
-  margin-left:2px;
-}
-.nav a.nav-cta:hover{
-  color:#241900;background:linear-gradient(180deg,#fff3c4,#ffe066);
-  box-shadow:0 0 22px rgba(255,217,77,.55);
-}
-
-/* Hero buy button (index.html) */
-.store-cta{display:flex;justify-content:center;margin-top:26px}
-.cta-primary{
-  display:inline-flex;flex-direction:column;align-items:center;gap:8px;
-  padding:16px 36px;border-radius:14px;text-decoration:none;
-  background:linear-gradient(180deg,#ffe9a8,#ffd94d);
-  box-shadow:0 12px 32px rgba(255,217,77,.32),0 0 0 1px rgba(255,255,255,.16) inset;
-  transition:transform .15s ease,box-shadow .15s ease;
-}
-.cta-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 16px 40px rgba(255,217,77,.44),0 0 0 1px rgba(255,255,255,.22) inset;
-}
-.cta-primary .chrome{font-size:28px}
-.cta-primary .cta-sub{
-  font-size:14px;letter-spacing:.03em;color:#3a2c00;font-weight:600;text-align:center;
-}
-@media (max-width:560px){
-  .cta-primary{padding:14px 26px}
-  .cta-primary .chrome{font-size:22px}
-  .cta-primary .cta-sub{font-size:13px}
-}
-
-/* Get VYRON — footer (long-scroll pages: Codex, Database, Manual) */
-.footer-cta{
-  display:inline-block;color:#241900;background:linear-gradient(180deg,#ffe9a8,#ffd94d);
-  font-weight:700;letter-spacing:.03em;padding:10px 22px;border-radius:10px;
-  text-decoration:none;box-shadow:0 0 16px rgba(255,217,77,.3);
-}
-.footer-cta:hover{box-shadow:0 0 22px rgba(255,217,77,.45)}
-
 /* ---------- Panels ---------- */
 
 .panel{
