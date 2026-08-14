@@ -141,31 +141,35 @@ h2:not(.chrome-ready){color:var(--amber)}
   box-shadow:0 0 20px rgba(95,223,255,.38);font-weight:700;
 }
 
-/* ---------- Floating store badge (bottom-left, fixed, every page) ---------- */
+/* ---------- Floating store badge (bottom-right, fixed, every page) ---------- */
 
 .store-badge{
-  position:fixed;left:18px;bottom:18px;z-index:90;
-  display:flex;align-items:center;gap:10px;
-  padding:10px 14px;border-radius:12px;
-  border:1px solid var(--line);background:rgba(6,16,30,.86);
+  position:fixed;right:18px;bottom:18px;z-index:90;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  padding:12px 16px;border-radius:14px;
+  border:1px solid var(--line-hi);background:rgba(6,16,30,.92);
   backdrop-filter:blur(10px);
-  box-shadow:0 10px 28px rgba(0,0,0,.5);
+  box-shadow:0 0 26px rgba(60,170,230,.28), 0 10px 28px rgba(0,0,0,.5),
+    0 0 0 1px rgba(76,217,255,.14) inset;
 }
-.store-badge-label{
-  color:var(--text-2);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
-  padding-right:2px;border-right:1px solid var(--line);margin-right:2px;
+.store-badge-label.chrome{
+  font-size:15px;                     /* drives glyph height (glyphs are 1em) */
+  line-height:0;
 }
+.store-badge-label .chrome-glyph{filter:drop-shadow(0 0 10px rgba(90,190,255,.65))}
+.store-badge-links{display:flex;gap:4px;border-top:1px solid var(--line);padding-top:7px;width:100%}
 .store-badge-link{
   display:inline-flex;align-items:center;gap:5px;
-  color:var(--text-2);border:0;text-decoration:none;
-  font-size:14px;padding:5px 9px;border-radius:8px;
+  color:var(--text);border:0;text-decoration:none;
+  font-size:14px;font-weight:600;padding:6px 10px;border-radius:8px;
   transition:color .16s ease,background .16s ease;
 }
-.store-badge-link svg{flex:none}
-.store-badge-link:hover{color:#fff;background:rgba(95,223,255,.14)}
+.store-badge-link svg{flex:none;color:var(--cyan);filter:drop-shadow(0 0 4px rgba(95,223,255,.5))}
+.store-badge-link:hover{color:#fff;background:rgba(95,223,255,.18)}
 @media (max-width:560px){
-  .store-badge{left:10px;bottom:10px;padding:8px 10px;gap:7px}
-  .store-badge-label{display:none}          /* keep it small on a phone screen */
+  .store-badge{right:10px;bottom:10px;padding:9px 11px;gap:5px}
+  .store-badge-label.chrome{font-size:12px}
+  .store-badge-links{padding-top:5px}
   .store-badge-link{padding:5px 7px;font-size:13px}
 }
 

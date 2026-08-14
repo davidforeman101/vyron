@@ -68,17 +68,24 @@
     var box = document.createElement('div');
     box.className = 'store-badge';
 
+    // Rendered in the site's own chrome bitmap font (same glyphs as every
+    // h1/h2 wordmark) rather than plain text, so this reads as VYRON
+    // branding, not a generic widget bolted onto the page.
     var label = document.createElement('span');
-    label.className = 'store-badge-label';
-    label.textContent = 'Get VYRON';
+    label.className = 'store-badge-label chrome';
+    label.setAttribute('data-chrome', 'get vyron');
+    label.textContent = 'GET VYRON';
     box.appendChild(label);
 
+    var links = document.createElement('div');
+    links.className = 'store-badge-links';
+
     var IPHONE_ICON = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">' +
-      '<rect x="3.5" y="1" width="9" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.1"/>' +
+      '<rect x="3.5" y="1" width="9" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>' +
       '<circle cx="8" cy="12.4" r=".9" fill="currentColor"/></svg>';
     var MAC_ICON = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">' +
-      '<rect x="1" y="2" width="14" height="9" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.1"/>' +
-      '<path d="M5.5 13.5h5M8 11v2.5" stroke="currentColor" stroke-width="1.1" fill="none"/></svg>';
+      '<rect x="1" y="2" width="14" height="9" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>' +
+      '<path d="M5.5 13.5h5M8 11v2.5" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>';
 
     [['iPhone', IPHONE_ICON], ['Mac', MAC_ICON]].forEach(function (pair) {
       var a = document.createElement('a');
@@ -87,10 +94,14 @@
       a.target = '_blank';
       a.rel = 'noopener';
       a.innerHTML = pair[1] + '<span>' + pair[0] + '</span>';
-      box.appendChild(a);
+      links.appendChild(a);
     });
+    box.appendChild(links);
 
     document.body.appendChild(box);
+    // chrome.js already ran on page load — render this dynamically-added
+    // label explicitly, same as the nav wordmark.
+    if (window.vyronChrome) window.vyronChrome(box);
   }
 
   /* ---------- Scroll reveals ---------- */
