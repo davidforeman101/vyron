@@ -141,6 +141,34 @@ h2:not(.chrome-ready){color:var(--amber)}
   box-shadow:0 0 20px rgba(95,223,255,.38);font-weight:700;
 }
 
+/* ---------- Floating store badge (bottom-left, fixed, every page) ---------- */
+
+.store-badge{
+  position:fixed;left:18px;bottom:18px;z-index:90;
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:12px;
+  border:1px solid var(--line);background:rgba(6,16,30,.86);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 28px rgba(0,0,0,.5);
+}
+.store-badge-label{
+  color:var(--text-2);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  padding-right:2px;border-right:1px solid var(--line);margin-right:2px;
+}
+.store-badge-link{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--text-2);border:0;text-decoration:none;
+  font-size:14px;padding:5px 9px;border-radius:8px;
+  transition:color .16s ease,background .16s ease;
+}
+.store-badge-link svg{flex:none}
+.store-badge-link:hover{color:#fff;background:rgba(95,223,255,.14)}
+@media (max-width:560px){
+  .store-badge{left:10px;bottom:10px;padding:8px 10px;gap:7px}
+  .store-badge-label{display:none}          /* keep it small on a phone screen */
+  .store-badge-link{padding:5px 7px;font-size:13px}
+}
+
 /* ---------- Panels ---------- */
 
 .panel{

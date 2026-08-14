@@ -57,6 +57,42 @@
     wrap.appendChild(foot);
   }
 
+  /* ---------- Floating store badge (bottom-left, every page) ---------- */
+
+  // Universal Purchase — one App Store record serves both iPhone and Mac,
+  // so both links go to the same URL; they're offered separately because
+  // that's the buying decision a visitor is actually making.
+  var STORE_URL = 'https://apps.apple.com/us/app/vyron/id6778002261';
+
+  function storeBadge() {
+    var box = document.createElement('div');
+    box.className = 'store-badge';
+
+    var label = document.createElement('span');
+    label.className = 'store-badge-label';
+    label.textContent = 'Get VYRON';
+    box.appendChild(label);
+
+    var IPHONE_ICON = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">' +
+      '<rect x="3.5" y="1" width="9" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.1"/>' +
+      '<circle cx="8" cy="12.4" r=".9" fill="currentColor"/></svg>';
+    var MAC_ICON = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">' +
+      '<rect x="1" y="2" width="14" height="9" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.1"/>' +
+      '<path d="M5.5 13.5h5M8 11v2.5" stroke="currentColor" stroke-width="1.1" fill="none"/></svg>';
+
+    [['iPhone', IPHONE_ICON], ['Mac', MAC_ICON]].forEach(function (pair) {
+      var a = document.createElement('a');
+      a.className = 'store-badge-link';
+      a.href = STORE_URL;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML = pair[1] + '<span>' + pair[0] + '</span>';
+      box.appendChild(a);
+    });
+
+    document.body.appendChild(box);
+  }
+
   /* ---------- Scroll reveals ---------- */
 
   function reveals(root) {
@@ -172,7 +208,7 @@
     show();
   }
 
-  function init() { chrome(); reveals(); lightbox(); stickyNav(); creed(); }
+  function init() { chrome(); storeBadge(); reveals(); lightbox(); stickyNav(); creed(); }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
