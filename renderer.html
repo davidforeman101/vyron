@@ -95,8 +95,8 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
       development machine is lying to you&rdquo;.</p>
 
     <p><b>The obvious Metal bridge was 5 to 10 times slower.</b> When iPhone performance
-      became a problem, the obvious fix was to get the frame onto the GPU myself: render into
-      a CGBitmapContext, hand the bytes to a Metal texture, draw a quad. I built it properly.
+      became a problem, the first fix I reached for was getting the frame onto the GPU myself:
+      render into a CGBitmapContext, hand the bytes to a Metal texture, draw a quad. I built it properly.
       It measured 5 to 10 times slower than what I already had. Copying a full-resolution
       frame's bytes across every frame swamped whatever the GPU gave back. Those 17 files are
       still in the repo in a folder called <code>Archive/v5-metal-bridge-experiment</code>,
