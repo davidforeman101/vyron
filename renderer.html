@@ -157,17 +157,18 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
 
 <pre><code>iPhone frame, shipped pipeline (v5)
 
-     CPU                                GPU
- ┌──────────────┐    same memory    ┌──────────────┐
- │  CGContext    │ ────────────────▶ │  MTLTexture   │
- │  draws into   │    (IOSurface)    │  zero-copy    │
- │  IOSurface A  │                   │  view of A    │
- └──────────────┘                   └───────┬──────┘
-        ▲                                    │  one textured quad
-  ~85 draw funcs                             ▼
-  (shared with Mac)                 CAMetalLayer drawable
+      CPU                                  GPU
++---------------+     same memory   +---------------+
+|  CGContext    | ----------------&gt; |  MTLTexture   |
+|  draws into   |    (IOSurface)    |  zero-copy    |
+|  IOSurface A  |                   |  view of A    |
++---------------+                   +-------+-------+
+        ^                                   |
+        |                                   |  one textured quad
+  ~85 draw funcs                            v
+  (shared with Mac)               CAMetalLayer drawable
 
- next frame: draw into B while A presents  (double buffer)</code></pre>
+next frame: draw into B while A presents   (double buffer)</code></pre>
 
     <p>The creation code is unremarkable, which is rather the point. The context is an
       ordinary CGContext; all 85 draw functions run against it unchanged:</p>
