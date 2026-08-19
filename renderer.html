@@ -89,7 +89,7 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
     let g = f(); _gc[id] = g; return g
 }</code></pre>
 
-    <p>There are about 166 gradients living in that cache now. The embarrassing part is how
+    <p>There are over 160 gradients living in that cache now. The embarrassing part is how
       long I went without profiling at all, because the game felt fine on my Mac. The lesson I
       actually learned was not &ldquo;cache your gradients&rdquo;, it was &ldquo;your
       development machine is lying to you&rdquo;.</p>
