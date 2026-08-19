@@ -40,9 +40,10 @@
       with a dotted underline are still being fact-checked against my own notes.</p>
 
     <p>I finally shipped a game. It is a 100-level arcade space shooter called VYRON, it
-      runs on Mac and iPhone from one codebase, and it uses no game engine. Not SpriteKit,
-      not Unity, not a custom Metal scene graph. The game content is drawn every frame with
-      Core Graphics calls, the same API you would use to render a pie chart.</p>
+      runs on Mac and iPhone from one codebase, and it uses no game engine. There is no
+      SpriteKit or Unity underneath, and no custom Metal scene graph either. The game content
+      is drawn every frame with Core Graphics calls, the same API you would use to render a
+      pie chart.</p>
 
     <p>A few people in a Reddit thread asked me to write up how that works and why anyone
       would do it. This is that write-up. I have tried to be honest about the parts that went
@@ -106,7 +107,7 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
     <p><b>UIKit was spending 70ms moving my finished frame.</b>
       <span class="draft-flag" title="Needs verifying against the original profiling notes">Profiling
       on device showed the software-to-GPU handoff of the finished frame costing about 70ms
-      inside UIKit's own compositing path</span> &mdash; the drawing was fast, the delivery
+      inside UIKit's own compositing path</span>. The drawing was fast; the delivery
       was not. This is the problem the failed Metal bridge was trying to solve by brute force.
       The actual solution was to stop copying: draw into memory the GPU can already see.</p>
 
