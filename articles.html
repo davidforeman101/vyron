@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYRON — Articles</title>
+<meta name="description" content="Writing from behind VYRON: how the game was built, what went wrong along the way, and what a year of solo development actually taught." />
+<meta property="og:site_name" content="VYRON" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="VYRON — Articles" />
+<meta property="og:description" content="Writing from behind VYRON: how the game was built, what went wrong along the way, and what a year of solo development actually taught." />
+<meta property="og:image" content="https://davidforeman101.github.io/vyron/shots/shot-01.jpg" />
+<meta property="og:url" content="https://davidforeman101.github.io/vyron/articles.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VYRON — Articles" />
+<meta name="twitter:description" content="Writing from behind VYRON: how the game was built, what went wrong along the way, and what a year of solo development actually taught." />
+<meta name="twitter:image" content="https://davidforeman101.github.io/vyron/shots/shot-01.jpg" />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="patrol" aria-hidden="true"></canvas>
+
+<div class="wrap" data-page="articles">
+
+  <header class="brand">
+    <h1 class="chrome" data-chrome="vyron">VYRON</h1>
+    <p class="tagline">Articles</p>
+  </header>
+
+  <section class="panel focus">
+    <h2 class="chrome" data-chrome="from behind the game">From behind the game</h2>
+    <p>VYRON was built by one person with no game engine, and a few people have asked how.
+      These are the honest write-ups: the technical decisions, the mistakes, and the
+      measurements that settled the arguments.</p>
+  </section>
+
+  <section class="panel article-entry">
+    <h3><a href="renderer.html">Drawn, not blitted</a></h3>
+    <p class="sub">A year building a 2D game renderer out of Core Graphics, one bad benchmark
+      at a time. Why there is no engine, the experiment that measured 5&ndash;10&times; slower
+      and stayed in the repo anyway, and the IOSurface pipeline that shipped.</p>
+    <p class="sub">August 2026</p>
+  </section>
+
+</div>
+
+<script src="chrome.js"></script>
+<script src="starfield.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

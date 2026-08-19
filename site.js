@@ -8,6 +8,7 @@
     { id: 'codex',    href: 'codex.html',    label: 'Codex'    },
     { id: 'database', href: 'database.html', label: 'Database' },
     { id: 'manual',   href: 'manual.html',   label: 'Manual'   },
+    { id: 'articles', href: 'articles.html', label: 'Articles' },
     { id: 'support',  href: 'support.html',  label: 'Support'  },
     { id: 'privacy',  href: 'privacy.html',  label: 'Privacy'  }
   ];
