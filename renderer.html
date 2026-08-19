@@ -78,8 +78,8 @@
     <h2 class="chrome" data-chrome="what went wrong">What went wrong</h2>
 
     <p><b>I allocated gradients every frame, for months.</b> Core Graphics gradients are
-      objects you build from color stops, and I was building them inside draw calls, which
-      means thousands of allocations per second at 60fps. The fix was a nine-line memoizer,
+      objects you build from colour stops, and I was building them inside draw calls, which
+      means thousands of allocations per second at 60fps. The fix was a nine-line memoiser,
       and it was the single largest performance win of the whole project. Nothing else came
       close.</p>
 
@@ -119,7 +119,7 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
       one <code>waitUntilCompleted</code> call. Finding it took
       <span class="draft-flag" title="Needs verifying — how long did this actually take?">the
       better part of two days</span>, because my instinct was to distrust my particle logic
-      rather than my synchronization.</p>
+      rather than my synchronisation.</p>
 
     <p><b>Apple rejected the Mac build because my canvas could clip.</b> The reviewer ran the
       game in a window shape I had never tried, and the canvas clipped. Root cause: I had
@@ -190,7 +190,7 @@ let tex = device.makeTexture(descriptor: texDesc, iosurface: surface, plane: 0)<
       slower&rdquo;. A cliff.</p>
 
     <p><b>Caching everything that survives a frame.</b> The gradient cache came first, then
-      the same pattern spread: fonts and colors are cached, text the HUD redraws every frame
+      the same pattern spread: fonts and colours are cached, text the HUD redraws every frame
       is cached as rendered images, enemy polygon meshes are cached. The renderer redraws the
       world from scratch each frame, but almost nothing inside a frame is constructed twice.
       When I later added a Metal post-process pass for a holographic foil effect on
