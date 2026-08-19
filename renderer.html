@@ -62,11 +62,16 @@
       building the thing I wanted back: a shmup that is arcade-simple to pick up, with the
       depth of a real game underneath it. It came out at about 90,000 lines of Swift.</p>
 
-    <p>The renderer choice fell out of the art style, not the other way round. VYRON's look is
+    <p>The renderer choice fell out of two wants. The first is the art style. VYRON's look is
       vector-ish: polygons, gradients, glows, no sprite sheets. Everything on screen is
-      geometry with a fill. Core Graphics is legitimately good at exactly that, and I already
-      knew it well. So the plan was: a CGContext, a display link, and a draw function that
-      renders the whole frame from scratch, every frame.</p>
+      geometry with a fill, and Core Graphics is legitimately good at exactly that. The second
+      want is the one that ruled out engines and sprites for good: I wanted the game to scale.
+      Because everything is geometry, the game renders at whatever resolution it is given,
+      from an 800&times;600 window to a 4K display and beyond, and it only gets better for it,
+      as long as the hardware can cope. A sprite is authored at one size and gets softer the
+      further you move from it; a polygon with a gradient fill is exact at every size. So the
+      plan was: a CGContext, a display link, and a draw function that renders the whole frame
+      from scratch, every frame.</p>
 
     <p>The renderer ended up as roughly 7,600 lines shared verbatim between the two platforms,
       split across about 85 draw functions. The platform layer underneath it is a handful of
@@ -120,6 +125,14 @@ func gc(_ id: Int, _ f: () -&gt; CGGradient) -&gt; CGGradient {
       <span class="draft-flag" title="Needs verifying — how long did this actually take?">the
       better part of two days</span>, because my instinct was to distrust my particle logic
       rather than my synchronisation.</p>
+
+    <p><b>The Mac build is Apple Silicon only, and that is a corner I architected myself
+      into.</b> The App Store build is arm64 only: M1 and newer. Nothing about the renderer
+      required that. It happened because I committed first and tested too late; a year of
+      performance decisions had quietly assumed the machine on my desk, and by the time I
+      looked beyond it the choice had already been made for me. It is the gradient lesson
+      again at architecture scale: my development machine was lying to me, and this time I
+      found out too late to do anything about it.</p>
 
     <p><b>Apple rejected the Mac build because my canvas could clip.</b> The reviewer ran the
       game in a window shape I had never tried, and the canvas clipped. Root cause: I had
@@ -181,6 +194,14 @@ let tex = device.makeTexture(descriptor: texDesc, iosurface: surface, plane: 0)<
       blurred it: the IOSurface pipeline exists because UIKit's frame delivery was the
       bottleneck, and AppKit's simply was not. Same renderer, two delivery mechanisms, and the
       boring old one is still in service on the platform where it was never a problem.</p>
+
+    <p><b>Six levels of rendering detail, managed in the background.</b> The renderer runs at
+      one of six detail levels, from basic up to cinematic. A rolling average of frame time
+      decides which: struggling drops it one, coping well for long enough recovers it, and a
+      cooldown stops it oscillating between the two. Resolution sets the ceiling, so a big
+      display is allowed the top levels and a small window is never asked to pay for them.
+      Between this and the vector drawing, the same build runs from an 800&times;600 window to
+      fullscreen 4K and simply spends whatever the hardware can afford.</p>
 
     <p><b>A thermal governor instead of a fixed frame rate.</b> Long sessions on a phone are a
       heat problem before they are a performance problem. Sustained load steps the frame rate
