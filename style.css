@@ -285,6 +285,10 @@ ul li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 
 /* ---------- Screenshot gallery ---------- */
 
+.clips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:14px;margin-top:6px}
+.clip{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000}
+.clip video{width:100%;height:auto;display:block}
+.clip figcaption{font-size:.85rem;opacity:.7;padding:8px 12px}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-top:6px}
 .shot{
   position:relative;border:1px solid var(--line);border-radius:13px;overflow:hidden;
