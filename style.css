@@ -289,17 +289,14 @@ ul li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 .clip{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000}
 .clip video{width:100%;height:auto;display:block}
 .clip figcaption{font-size:.85rem;opacity:.7;padding:8px 12px}
-/* Device group headings inside "Watch it". Smaller than a panel h2 so the
-   section still reads as one block rather than three. */
-.clips-head{font-size:15px;letter-spacing:.08em;margin:20px 0 2px;opacity:.85}
-.clips-head:first-of-type{margin-top:6px}
-/* A portrait clip in a landscape grid would be over 900px tall at full column
-   width, so it is capped by height and centred, and the black figure ground
-   fills what is left. */
+/* Portrait previews. The landscape grid's 420px minimum would make a 444x960
+   clip over 900px tall, so the portrait row uses a narrower column and the
+   video is capped by height, centred on the black figure ground. */
+.clips-portrait{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
 .clip-portrait{display:flex;flex-direction:column;align-items:center}
-.clip-portrait video{width:auto;max-width:100%;max-height:520px}
-.clip-portrait figcaption{align-self:stretch}
-@media (max-width:700px){.clip-portrait video{max-height:460px}}
+.clip-portrait video{width:auto;max-width:100%;max-height:560px}
+.clip-portrait figcaption{align-self:stretch;text-align:center}
+@media (max-width:700px){.clip-portrait video{max-height:440px}}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-top:6px}
 .shot{
   position:relative;border:1px solid var(--line);border-radius:13px;overflow:hidden;
